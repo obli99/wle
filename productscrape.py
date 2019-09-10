@@ -17,6 +17,7 @@ text = requests.get(URL, headers=headers)
 page = soup(text.content, 'html.parser')
 
 item_name = page.find(id = 'productTitle').get_text()
+item_name = item_name.strip()
 
 item_price = page.find(id = 'priceblock_ourprice').get_text()
 integer_item_price = int(item_price.replace('₹\xa0', '').split('.')[0].replace(',', ''))
@@ -25,9 +26,9 @@ item_link = URL.split('/ref')[0]
 
 item_rating = page.find('span', {'class': 'a-icon-alt'}).get_text()
 
-print(item_name.strip())
-print(item_price)
-print(item_rating)
+
+
+
 
 
 
