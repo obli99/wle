@@ -2,7 +2,7 @@ import json
 import productscrape as ps
 
 data = {}
-
+data['amazon'] = []
 data['amazon'].append({
     'Item Name': ps.item_name,
     'Item Price': ps.item_price,
