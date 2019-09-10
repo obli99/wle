@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup as soup
 
 # search any item from your browser in amazon.in and paste it
 URL = str(input("Paste your product url here:\n"))
-url = 'https://www.amazon.in'
+
 
 headers = {
     "User-Agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'}
