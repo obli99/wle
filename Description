@@ -1,8 +1,1 @@
-Basically the project aims at notifying the user
-if there is a price drop in any item he/she wants to buy from any online shopping website.
 
-But currently we are just focussing on a single user
-i.e only one user at a time and the shopping website is selected as Amazon for now.
-
-We are making it into a complete web extension that creates a wishlist in the database
-and notifies any sort of price changes for multiple products as well as multiple websites in the near future .
