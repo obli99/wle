@@ -1,7 +1,7 @@
 ﻿{
 
-"name":"Open Multiple Websites",
-"description":"Open multiple links easily",
+"name":"Price Notifier",
+"description":"notifies price changes",
 "version":"1.0",
 
 "manifest_version":2,
