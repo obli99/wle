@@ -1,25 +1,24 @@
-﻿{
+{
+    "manifest_version": 2,
+    "name": "Price Notifier",
+    "version": "1.0",
 
-"name":"Price Notifier",
-"description":"notifies price changes",
-"version":"1.0",
+    "description": "Notifies price changes",
 
-"manifest_version":2,
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
 
-"browser_action":{
-"default_icon":"icon.png",
-"default_popup":"popup.html"
-},
+    "content_scripts": [{
+        "matches": ["*://www.amazon.in/*"],
+        "js": ["script.js"]
+    }],
     
-"content_scripts": [{
-"matches": ["*//www.amazon.in/*"],
-"js": ["script.js"]
+    "permissions" : [
+        "tabs",
+        "storage"
+    ]
 
-}],
-
-"permissions":[
-   "tabs",
-   "storage"
-]
 
 }
