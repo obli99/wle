@@ -37,22 +37,22 @@ def main():
 
     item_rating = page.find('span', {'class': 'a-icon-alt'}).get_text()
     if debug:
-        print("item_link:", item_rating, "\n")
+        print("item_rating:", item_rating, "\n")
 
     if post_amazon_domain == 'com':
-        item_price = page.find('span', id='priceblock_ourprice').get_text()
+        item_price = page.find('span', id='priceblock_ourprice', attrs={"class": "a-size-medium a-color-price priceBlockBuyingPriceString"}).get_text()
         integer_item_price = float(item_price.lstrip('$'))
         price_flag = True
     elif post_amazon_domain == 'in':
-        item_price = page.find(id='priceblock_ourprice').get_text()
+        item_price = page.find(id='priceblock_ourprice', attrs={"class": "a-size-medium a-color-price priceBlockBuyingPriceString"}).get_text()
         integer_item_price = int(item_price.replace('₹\xa0', '').split('.')[0].replace(',', ''))
         price_flag = True
     elif post_amazon_domain == 'de':
-        item_price = page.find('span', id='priceblock_ourprice').get_text()
+        item_price = page.find('span', id='priceblock_ourprice', attrs={"class": "a-size-medium a-color-price priceBlockBuyingPriceString"}).get_text()
         integer_item_price = float(item_price.replace('\xa0€', '').replace(',', '.'))
         price_flag = True
     elif post_amazon_domain == 'fr':
-        item_price = page.find('span', id='priceblock_ourprice').get_text()
+        item_price = page.find('span', id='priceblock_ourprice', attrs={"class": "a-size-medium a-color-price priceBlockBuyingPriceString"}).get_text()
         integer_item_price = float(item_price.replace('\xa0€', '').replace(',', '.'))
         price_flag = True
     else:
