@@ -1,6 +1,6 @@
 # Wishlist Extension
 
-- A web extension that will retrieve the item links from the amazon webpage and will put the items into the extension,curently for a single user only.
+- A Chrome extension that will retrieve the item links from the amazon webpage and will put the items into the extension,curently for a single user only.
 
 - The item details gets stored in the json file and gives a popup in the extension icon itself if there is a decrease/increase in the price.
 
