@@ -4,18 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wishlist Extension</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <title>Price Notify</title>
+    <link rel="stylesheet" href="assets/css/popup.css">
 </head>
 
 <body>
+    <img class="icon-img" src="assets/images/icon.png" width="50" height="50" align="left" />
     <header class="head" align="center">
-        <h3>Wishlist Extension</h3>
-    </header><br>
-    <div class="btn">
-        <button type="button">Add</button>
-    </div>
-    <script src="popup.js"></script>
-</body>
 
+        <h3>Price Notify</h3>
+    </header><br>
+    <div class="add-button" align="center">
+        <button id="add-btn" class="btn btn-success btn-lg" type="button">Add Item</button>
+    </div>
+    <div class="show-button">
+        <a href="assets/wishlist.html" target="_blank">
+            <button id="show-btn" class="btn btn-warning btn-sm" type="button">Your Wishlist</button>
+        </a>
+    </div>
+    <script src="assets/js/popup.js "></script>
+</body>
+  
 </html>

@@ -21,46 +21,50 @@ def scraping(url):
 
     item_name = page.find(id='productTitle').get_text()
     item_name = item_name.strip()
-    #print("item_name:", item_name, "\n")
     product['item_name'] = item_name
 
     item_link = url.split('/ref')[0]
-    #print("item_link:", item_link, "\n")
     product['item_link'] = item_link
 
-    item_rating = page.find('span', {'class': 'a-icon-alt'}).get_text()
-    #print("item_rating:", item_rating, "\n")
-    product['item_rating'] = item_rating
+    try:
+        item_rating = page.find('span', {'class': 'a-icon-alt'}).get_text()
+        product['item_rating'] = item_rating
+    except AttributeError:
+        product['item_rating'] = None
 
     if post_amazon_domain == 'com':
-        item_price = page.find('span', id='priceblock_ourprice', attrs={"class": "a-size-medium a-color-price priceBlockBuyingPriceString"}).get_text()
-        integer_item_price = float(item_price.lstrip('$'))
-        product['item_price'] = item_price
+        try:
+            item_price = page.find('span', id='priceblock_ourprice', attrs={"class": "a-size-medium a-color-price priceBlockBuyingPriceString"}).get_text()
+            integer_item_price = float(item_price.lstrip('$'))
+            product['item_price'] = item_price
+        except AttributeError:
+            product['item_price'] = None
 
     elif post_amazon_domain == 'in':
-        item_price = page.find('span', id='priceblock_ourprice', attrs={"class": "a-size-medium a-color-price priceBlockBuyingPriceString"}).get_text()
-        integer_item_price = int(item_price.replace('₹\xa0', '').split('.')[0].replace(',', ''))
-        product['item_price'] = integer_item_price
+        try:
+            item_price = page.find('span', id='priceblock_ourprice', attrs={"class": "a-size-medium a-color-price priceBlockBuyingPriceString"}).get_text()
+            integer_item_price = int(item_price.replace('₹\xa0', '').split('.')[0].replace(',', ''))
+            product['item_price'] = integer_item_price
+        except AttributeError:
+            product['item_price'] = None
 
     elif post_amazon_domain == 'de':
-        item_price = page.find('span', id='priceblock_ourprice', attrs={"class": "a-size-medium a-color-price priceBlockBuyingPriceString"}).get_text()
-        integer_item_price = float(item_price.replace('\xa0€', '').replace(',', '.'))
-        product['item_price'] = integer_item_price
+        try:
+            item_price = page.find('span', id='priceblock_ourprice', attrs={"class": "a-size-medium a-color-price priceBlockBuyingPriceString"}).get_text()
+            integer_item_price = float(item_price.replace('\xa0€', '').replace(',', '.'))
+            product['item_price'] = integer_item_price
+        except AttributeError:
+            product['item_price'] = None
 
     elif post_amazon_domain == 'fr':
-        item_price = page.find('span', id='priceblock_ourprice', attrs={"class": "a-size-medium a-color-price priceBlockBuyingPriceString"}).get_text()
-        integer_item_price = float(item_price.replace('\xa0€', '').replace(',', '.'))
-        product['item_price'] = integer_item_price
+        try:
+            item_price = page.find('span', id='priceblock_ourprice', attrs={"class": "a-size-medium a-color-price priceBlockBuyingPriceString"}).get_text()
+            integer_item_price = float(item_price.replace('\xa0€', '').replace(',', '.'))
+            product['item_price'] = integer_item_price
+        except AttributeError:
+            product['item_price'] = None
 
     else:
-        print('Undefined domain')
         product['item_price'] = None
 
     return product
-
-
-if __name__ == '__main__':
-    print(scraping())
-
-else:
-    pass

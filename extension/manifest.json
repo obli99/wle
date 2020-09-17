@@ -1,25 +1,23 @@
 {
     "manifest_version": 2,
-    "name": "Wishlist Extension",
+    "name": "Price Notifier Extension",
     "version": "1.0",
 
-    "description": "Notifies price changes",
+    "description": "Notifies price change in each item",
 
     "browser_action": {
-        "default_icon": "icon.png",
+        "default_icon": "assets/images/icon.png",
         "default_popup": "popup.html"
     },
 
     "content_scripts": [{
         "matches": ["*://www.amazon.in/*"],
-        "js": ["script.js"]
+        "js": ["assets/js/script.js"]
     }],
-    
-    "permissions" : [
+
+    "permissions": [
         "tabs",
-        "storage"
+        "storage",
+        "activeTab"
     ]
-
-
 }
-
