@@ -1,12 +1,28 @@
-document.body.style.border = "5px solid black";
-
-var product;
-chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-    product = tabs[0].url
+var url;
+chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function 
+(tabs) {
+    url = tabs[0].url;
+   
 });
 
-if (product.includes("https://www.amazon") && product.includes("/dp/")) {
+// url = "https://price-tracker-extension.herokuapp.com/link/" + url;
+
+let button = document.getElementById("add-btn");
+
+button.addEventListener("click", function() {
+
+    let link = url;
+    var data = {
+
+        link:link
+    }
+
+    var database = firebase.database(); 
+
+    var ref = database.ref("record");
+
+    
+    ref.push(data);
     alert('Item has been successfully added to your Wishlist!');
-} else {
-    alert('This is not a valid amazon product webpage');
-}
+
+})
